@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService, Heroe } from '../../../servicios/heroes.service';
+//para importar a la pagina
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,19 +8,12 @@ import { HeroesService, Heroe } from '../../../servicios/heroes.service';
 })
 export class NavbarComponent implements OnInit {
 
-  heroe: Heroe[] = [];
-
-  constructor(private _heroesService: HeroesService) { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }
 
   buscarHeroe(termino: string) {
-    this.heroe = this._heroesService.buscarHeroe(termino);
-    if (this.heroe.length > 0) {
-      console.log(this.heroe[0].nombre);
-    }else{
-      console.log("No hay coincidencias con la busqueda :(");
-    }
+    this._router.navigate(['/buscar', termino]);
   }
 }
