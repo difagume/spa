@@ -32,7 +32,5 @@ export class BusquedaComponent implements OnInit {
         console.log("No hay coincidencias con la busqueda :(");
       }
     })
-
-
   }
 }
